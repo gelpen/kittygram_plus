@@ -8,7 +8,7 @@ from cats.views import CatViewSet, OwnerViewSet, AchievementSerializer
 router = DefaultRouter()
 router.register('cats', CatViewSet)
 router.register('owners', OwnerViewSet)
-router.register('Achievement', AchievementSerializer)
+router.register('achievement', AchievementSerializer)
 
 urlpatterns = [
     path('', include(router.urls)),
