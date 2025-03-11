@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Cat, Owner, Achievement, AchievementCat
+from .models import Cat, Owner, Achievement, AchievementCat, CHOICES
 import datetime as dt
 import webcolors
 
@@ -30,6 +30,12 @@ class AchievementSerializer(serializers.ModelSerializer):
 #         # Возвращаем данные в новом формате
 #         return data
 
+class CatListSerializer(serializers.ModelSerializer):
+    color = serializers.ChoiceField(choices=CHOICES)
+
+    class Meta:
+        model = Cat
+        fields = ('id', 'name', 'color')
 
 class CatSerializer(serializers.ModelSerializer):
     # Убрали owner = serializers.StringRelatedField(read_only=True)
