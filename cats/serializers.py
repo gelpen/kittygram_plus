@@ -3,6 +3,7 @@ from rest_framework import serializers
 from .models import Cat, Owner, Achievement, AchievementCat, CHOICES
 import datetime as dt
 import webcolors
+#from djoser.serializers import UserSerializer
 
 
 class AchievementSerializer(serializers.ModelSerializer):
@@ -36,6 +37,7 @@ class CatListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cat
         fields = ('id', 'name', 'color')
+
 
 class CatSerializer(serializers.ModelSerializer):
     # Убрали owner = serializers.StringRelatedField(read_only=True)
@@ -87,3 +89,9 @@ class OwnerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Owner
         fields = ('first_name', 'last_name', 'cats')
+
+
+# class CustomUserSerializer(UserSerializer):
+#     class Meta:
+#         model = User
+#         fields = ('email', 'id', 'username', 'first_name', 'last_name')
